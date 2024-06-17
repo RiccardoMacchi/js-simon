@@ -1,5 +1,6 @@
-// Recupero div container
+// Recupero elementi pagina
 const container = document.getElementById("container")
+const button = my_btn.getElementById("my_btn")
 
 // Generazione di 5 numeri random
 const randNum = genRandSeq(1,100)
@@ -9,9 +10,10 @@ console.log("questi sono i numeri casuali", randNum)
 container.innerText = randNum
 
 // Imposto timer per richiesta e scomparsa numeri
-let timeOut = setInterval(scomp,10000)
+let timeOut = setTimeout(scomp,10000)
 
-
+// Numero punti
+let point = 0
 
 
 // Scomparsa numeri
@@ -23,9 +25,12 @@ function scomp(){
         let num = parseInt(prompt("Inserisci uno dei numeri che hai visto prima"))
         // Verifica numeri dati dall'utente
         if (randNum.includes(num)) {
-            console.log("numero presente", num)
+            console.log("numero presente", num);
+            point++;
         } else {
-            console.log("numero non presente", num)
+            console.log("numero non presente",);
         }
     }
+    // Stampa punti
+    console.log("noumero punti", point)
 }
