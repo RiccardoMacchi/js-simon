@@ -1,0 +1,66 @@
+/* Regole generali */
+*{
+    margin: 0;padding: 0;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* regole body */
+
+#my_btn {
+    width: 60%;
+    background-color: purple;
+    padding: 20px 0;
+    margin: 25px auto;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+#container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 40px 25px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+#verify {
+    margin: 0 auto;
+    margin-top: 25px;
+    width: 40%;
+    padding: 20px 0;
+    background-color: yellowgreen;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+/* risposta giusta */
+
+.right_num {
+    width: 50%;
+    padding: 20px 0;
+    margin: 25px auto;
+    background-color: #9be99b;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.right_num span {
+    margin: 5px;
+    background-color: yellow;
+}
+
+/* Regole input */
+
+input {
+    margin: 10px;
+}
+
+
+/* Regole numeri dispaly */
+
+#container span {
+    display: inline-block;
+    font-size: 34px;
+    margin-top: 20px;
+}

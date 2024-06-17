@@ -25,3 +25,11 @@ function genRandSeq(min,max){
     }
     return arryNum
 }
+
+function crateInput(){
+    container.innerText = "";
+    container.innerHTML = `<h3>INSERISCI QUI I NUMERI CHE HAI MEMORIZZATO E POI VERIFICA QUANTI NE HAI INDOVINATI</h3>`
+    for (let i = 0; i < 5; i++){
+        inputUser = container.innerHTML += `<input id="num_user${i}" type="text">`;
+    }
+}

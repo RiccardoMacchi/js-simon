@@ -3,7 +3,7 @@ const container = document.getElementById("container")
 
 // Creazione div
 
-const newDiv = document.createElement("div") 
+const newDiv = newElCl("div","right_num")
 // Recupero numeri utente
 const numUser = []
 let inputUser = container.innerHTML
@@ -11,50 +11,48 @@ let inputUser = container.innerHTML
 // Numero punti
 let point = 0
 
+// Creazione arrey vuoto sequenza
+let randNum;
 // Bottoni
 const buttonStrat = document.getElementById("my_btn")
 const buttonVerify = document.getElementById("verify")
 
-// Generazione di 5 numeri random
-const randNum = genRandSeq(1,100)
-console.log("questi sono i numeri casuali", randNum)
 
-// Stampa numeri random in pagina
-container.innerText = randNum
+buttonStrat.addEventListener("click",
+    ()=>{
+        container.innerHTML = `<h3>Ricordati questi numeri!! Hai 30 secondi...</h3>`
+        // Generazione di 5 numeri random
+        randNum = genRandSeq(1,100)
+        console.log("questi sono i numeri casuali", randNum)
 
-// Imposto timer per richiesta e scomparsa numeri
-let timeOut = setTimeout(scomp,3000)
+        // Stampa numeri random in pagina
+        container.innerHTML += `<span>${randNum}</span>`
 
-
-// Scomparsa numeri
-// Richiesta numeri utente
-
-function scomp(){
-    container.innerText = "";
-    for (let i = 0; i < 5; i++){
-        inputUser = container.innerHTML += `<input id="num_user${i}" type="text">`;
+        // Imposto timer per richiesta e scomparsa numeri
+        setTimeout(crateInput,3000)
     }
-    
-    
-}
+)
 
 buttonVerify.addEventListener("click",
     ()=>{
         for (let i = 0; i < 5; i++) {
-            let nodoNumSingleUser = document.getElementById(`num_user${i}`)
-            let numSingleUser = nodoNumSingleUser.value;
-            console.log(numSingleUser);
+            let nodoNumSingleUser = document.getElementById(`num_user${i}`);
+            let numSingleUser = parseInt(nodoNumSingleUser.value);
+            console.log("prima dell'if", numSingleUser);
             if (randNum.includes(numSingleUser)) {
-                console.log(newDiv)
-                newDiv.innerHTML += `${numSingleUser}`
-                console.log(newDiv)
-                container.append(newDiv)
+                console.log("presente");
+                newDiv.innerHTML += `<span>${numSingleUser}</span>`
+                console.log(newDiv);
                 point++;
             } else {
                 console.log("numero non presente",);
+                // console.log("else console", numSingleUser);
             }
+            nodoNumSingleUser.value = "";
         }
-        
+        // Stampa numeri giusti
+        newDiv.innerHTML += `<h3>Hai memorizzato correttamente: ${point} numeri</h3>`
+        container.append(newDiv);
 
     }
 )
