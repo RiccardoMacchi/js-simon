@@ -1,6 +1,15 @@
 // Recupero elementi pagina
 const container = document.getElementById("container")
-const button = my_btn.getElementById("my_btn")
+
+// Recupero numeri utente
+const numUser = document.querySelectorAll("num_user")
+console.log(numUser)
+// Numero punti
+let point = 0
+
+// Bottone
+const button = document.getElementById("my_btn")
+
 
 // Generazione di 5 numeri random
 const randNum = genRandSeq(1,100)
@@ -11,9 +20,6 @@ container.innerText = randNum
 
 // Imposto timer per richiesta e scomparsa numeri
 let timeOut = setTimeout(scomp,10000)
-
-// Numero punti
-let point = 0
 
 
 // Scomparsa numeri
